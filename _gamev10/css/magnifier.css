@@ -1,0 +1,38 @@
+/* styles for magnifier image pairs */
+
+/* style for the DIV that holds the image pair */
+.magnifier {
+  overflow: hidden;
+  position: relative;
+}
+
+/* style for the DIV that is the magnifier lens */
+.maglens {
+  position: absolute;
+  overflow: hidden;
+  width: 450px;
+  height: 290px;
+  -webkit-border-image:url('/htc1.gif') 10 10 10 10;
+
+}
+
+.lenscontainer {
+  overflow: hidden;
+  width: 450px;
+  height: 300px;
+  background-image:url('/htc1.gif');
+}
+
+/* style for the small IMG that appears on the page */
+.magsmall {
+  position: absolute; 
+  border-style: none
+}
+
+/* style for the magnified image, using a clip rectangle */
+.maglarge {
+  position: absolute; 
+  border-style: none
+}
+
+

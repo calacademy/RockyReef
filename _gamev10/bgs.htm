@@ -1,0 +1,103 @@
+<HTML>
+    <HEAD>
+ 
+
+	 <link rel="stylesheet" href="css/rrint.css">
+	 <link rel="stylesheet" href="css/jsKeyboard.css">
+
+	 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	 <script type="text/javascript" src="js/tidepoolgamePlay.js"></script>
+	 <script type="text/javascript" src="js/tidepoolGameHandler.js"></script>
+	 <script type="text/javascript" src="js/tidepoolVarsFuncs.js"></script>
+	 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script> 
+	 <script type="text/javascript" src="js/easeljs-0.7.1.min.js"></script>
+	 <script type="text/javascript" src="js/sound.js"></script>
+	 <script type="text/javascript" src="js/jsKeyboard.js"></script>
+
+	 <title>California's Rocky Reef</title>
+
+	</HEAD>
+	<BODY>
+	<div id="emailz">	<div id="virtualKeyboard">
+</div>
+
+
+		<div class="leftside"  >
+		<H1 class="grayHeader" id="emailHeader">Yes, please send me my <BR /> Explore Tidepool poster!  </H1>
+		<B class="graySubtitle" id="emailSubTitle">Send me my Badge and Guide to: </B>
+		<div id="marketo">
+			<script src="js/forms2.js"></script>
+			<form id="mktoForm_1053" onclick="jsKeyboard.focus('#Email');clean('#Email')"></form>
+
+			<script type="text/javascript" >
+				
+				$('#emailz').show();
+				MktoForms2.loadForm("http://app-sjp.marketo.com", "945-SMH-086", 1053, function(form){
+					//Add an onSuccess handler
+					form.onSuccess(function(values, followUpUrl){
+					$('#emailHeader').text("Success!  Your reward is on its way!");
+					$('#emailSubTitle').hide();
+					//get the form's jQuery element and hide it
+					form.getFormElem().hide();
+					//return false to prevent the submission handler from taking the lead to the follow up url.
+					return false;
+			});
+		});
+
+		$('#Email').showKeyboard('Email');
+		$('#Email').click(function(){ getTheKB("Email"); });
+		
+		function getTheKB(id) {
+			(this).onfocus="jsKeyboard.focus('#Email');clean('#Email')";
+		}
+
+		</script>
+	</div>
+</div>
+ <script type="text/javascript">
+     $(function () {
+         jsKeyboard.init("virtualKeyboard");
+         $("#Email").val(initText);
+     });
+     
+     function focusIt(t) {
+        // define where the cursor is to write character clicked.
+         jsKeyboard.currentElement = $(t);
+         jsKeyboard.show();
+     }
+
+     function showKeyboard(id) {
+         clean($("#" + id));
+         jsKeyboard.currentElement = $("#Email");
+         jsKeyboard.show();
+     }
+     var isCleaned = false;
+     function clean(t) {
+         if (!isCleaned) {
+             $(t).text("");
+             isCleaned = true;
+         }
+     }
+     var initText = "click to here to start writing...";
+     function send() {
+         if ( $("#txtContent").val() != initText && $("#txtContent").val().length > 0) {
+             $("#requestForm").css("display", "none");
+             window.setTimeout('$("#feedback").html("Your request has been processing. Please wait...").css("display","block");', 100);
+             window.setTimeout('$("#feedback").html("Your request has been sent. You will see request form in 5 seconds").css("display","block");', 2000);
+             window.setTimeout('showRequestForm()', 7000);
+         }
+         else {
+             $("#feedback").html("Please write your request...").css("display","block");
+         }
+     }
+
+     function showRequestForm() {
+         $("#requestForm").css("display", "block");
+         $("#feedback").css("display", "none");
+         $("#feedback").html("");
+     }
+ </script> 
+		</div>
+	</div>
+	</BODY>
+</HTML>

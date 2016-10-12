@@ -1,0 +1,252 @@
+<HTML>
+    <HEAD>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	 <link rel="stylesheet" href="css/rrint.css">
+	 <link rel="stylesheet" href="css/jsKeyboard.css">
+
+	 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	 <script type="text/javascript" src="js/tidepoolgamePlay.js"></script>
+	 <script type="text/javascript" src="js/tidepoolGameHandler.js"></script>
+	 <script type="text/javascript" src="js/tidepoolVarsFuncs.js"></script>
+	 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	 <script type="text/javascript" src="js/jsKeyboard.js"></script>
+	 <script type="text/javascript" src="js/easeljs-0.7.1.min.js"></script>
+	 <script type="text/javascript" src="js/sound.js"></script>
+
+	 <title>California's Rocky Reef</title>
+
+	</HEAD>
+	<BODY>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var tp = new tidepoolGameHandler();
+			tp.initialize();
+			
+			function GetUrlValue(VarSearch){
+				var SearchString = window.location.search.substring(1);
+				var VariableArray = SearchString.split('&');
+				for(var i = 0; i < VariableArray.length; i++){
+					var KeyValuePair = VariableArray[i].split('=');
+					if(KeyValuePair[0] == VarSearch){
+						return KeyValuePair[1];
+					}
+				}
+			}
+				window.oncontextmenu = function(event) {
+					event.preventDefault();
+					event.stopPropagation();
+					return false;
+				};
+			var canhazattract = GetUrlValue("attract");
+			if (canhazattract == 0) {
+				$('#vid').fadeOut();
+			setTimeout(function() { $('#gameselect1').fadeIn(300); }, 200);
+			setTimeout(function() { $('#gameselect2').fadeIn(300); }, 100);
+			$('#gameselect3').fadeIn(300);
+				// tp.cleanup();
+			}
+			
+	});
+	</script>
+
+	<div id="vid"> 
+		<div id="touchHere">
+		 </div> 
+		<video id="attractvid" src="reefer/tpcIntro.mp4" width="1920" height="1080" autoplay loop muted>
+	</div>
+	
+	<img id="gameselect1" src="reefer/introGame1.png">
+	<img id="gameselect2" src="reefer/introGame2.png">
+	<img id="gameselect3" src="reefer/introGame3.png">
+
+	<img id="spec1"  >
+	<img id="spec2"  >
+	<img id="spec3"  >
+	<img id="spec4"  >
+	<img id="spec5"  >
+	<img id="spec6"  >
+	
+	<img id="blueCircle" src="reefer/circle.png"  > 
+	<img id="bigWhite" src="reefer/bigWhite.png"  >
+	
+	<img id="notebook1" src="reefer/whiteCircle.png"  >
+	<img id="notebook2" src="reefer/whiteCircle.png"  >
+	<img id="notebook3" src="reefer/whiteCircle.png"  >
+	<img id="notebook4" src="reefer/whiteCircle.png"  >
+	<img id="notebook5" src="reefer/whiteCircle.png"  >
+	<img id="notebook6" src="reefer/whiteCircle.png"  >
+
+	<img id="crit1"  >
+	<img id="crit2"  >
+	<img id="crit3"  >
+	<img id="crit4"  >
+	<img id="crit5"  >
+	<img id="crit6"  >
+	<img id="crit7"  >
+
+	<div id="crit1Dox">
+			<A id="crit1DName" class="head">  </A> <BR />
+			<I id="crit1LName" class="latin"> </I> <BR />
+	</div>
+	<div id="crit2Dox">
+			<A id="crit2DName" class="head"> </A> <BR />
+			<I id="crit2LName" class="latin" color="#8392a0"> </I> <BR />
+	</div>
+	<div id="crit3Dox">
+			<A id="crit3DName" class="head">  </A> <BR />
+			<I id="crit3LName" class="latin"> </I> <BR />
+	</div>
+	
+    <img id="glass" src="clearer.png">
+	 
+	<div id="maggie" >
+     <div id="lens"> </div> 
+	 <div id="maggieBG"> </div>
+    </div>
+
+	<div id="matchscreen" > <H1 id="matchtext" class="orange"> </H1>  </div>
+
+	<H1 id="introName" > </H1>
+	
+	<video id="videotimesUp" width="1920" height="1080"  muted> </video>
+
+	<div id="timesUp">
+	 <div class="center"> 
+	    <H1 id="timesUpHead" class="whiteItal">Time's up!</H1>
+        <a id="fornoone" class="gray">The Tide Waits For No One!</a> 
+     </div> 
+	</div>
+
+	<div id="youDone">
+		<img id="badge" src="reefer/snailBadge.png">
+		<H3 id="endingTitle"> You’re Good at 
+Searching for Snails! </H3>
+		<p  id="endingExpos">Every day, people like you find, photograph and share images of tidepool life online. Share your discoveries and help protect and conserve our oceans! Join a community that is making a difference.
+				<BR /> <BR />  Join a community that is making a difference! 
+		</p>
+		<img id="playAgain" src="reefer/playAgain.png"> 
+		<img id="endingClaim" src="reefer/claimPrize.png"> 
+		<p id="iNatblurb">
+			<b id="iNatHead" class="latin">Take a Simple Step</b>
+			<BR />	&nbsp;	<BR />	&nbsp;		<BR />
+			<a id="iNatExpos" class="latin">Join the team!  Your discoveries, combined with the work of other volunteers, will help build a better picture of our coastal ecosystem.</a>
+			<BR /> &nbsp;  <BR /> &nbsp;  <BR />
+			<a id="iNatURLtitle" > iNaturalist </a> <BR />
+			<a id="iNatURL" > http://www.inaturalist.com/app</a>
+		</p>
+	<div id="iNatTicTacs" >
+		<img id="iNatImage" src="iNat/wsparks242.jpg">
+		<a class="iNatTix" id="iNatID"></a>
+		<a class="iNatTix" id="iNatTTExpos"></a>
+   </div>
+	<div id="iNatTicTacs2" >
+		<img id="iNatImage2">
+		<a class="iNatTix" id="iNatID2"></a>
+		<a class="iNatTix" id="iNatTTExpos2"></a>
+   </div>
+		
+	</div>
+
+	<div id="emailz">	<div id="virtualKeyboard">   </div>
+	<H1 class="grayHeader" id="emailHeader">Yes, please send me my <BR /> Explore Tidepool poster!  </H1>
+		<B class="graySubtitle" id="emailSubTitle">Send me my Badge and Guide to: </B>
+		<A class="grayLight" id="emailURL">Or find it online at: calacademy.org/tidepool</a>
+		<div id="marketo">
+			<script src="js/forms2.js"></script>
+			<form id="mktoForm_1053" onclick="jsKeyboard.focus('#Email');clean('#Email')"></form>
+		</div>
+	</div>
+ <script type="text/javascript">
+ 
+ 
+
+     $(function () {
+         jsKeyboard.init("virtualKeyboard");
+         $("#Email").val(initText);
+     });
+
+     function focusIt(t) {
+        // define where the cursor is to write character clicked.
+         jsKeyboard.currentElement = $(t);
+         jsKeyboard.show();
+
+     }
+
+     function showKeyboard(id) {
+         clean($("#" + id));
+         jsKeyboard.currentElement = $("#Email");
+         jsKeyboard.show();
+     }
+     var isCleaned = false;
+     function clean(t) {
+         if (!isCleaned) {
+             $(t).text("");
+             isCleaned = true;
+         }
+     }
+     var initText = "click to here to start writing...";
+     function send() {
+         if ( $("#txtContent").val() != initText && $("#txtContent").val().length > 0) {
+             $("#requestForm").css("display", "none");
+             window.setTimeout('$("#feedback").html("Your request has been processing. Please wait...").css("display","block");', 100);
+             window.setTimeout('$("#feedback").html("Your request has been sent. You will see request form in 5 seconds").css("display","block");', 2000);
+             window.setTimeout('showRequestForm()', 7000);
+         }
+         else {
+             $("#feedback").html("Please write your request...").css("display","block");
+         }
+     }
+
+     function showRequestForm() {
+         $("#requestForm").css("display", "block");
+         $("#feedback").css("display", "none");
+         $("#feedback").html("");
+     }
+ </script> 
+		</div>
+	</div>
+
+	<img id="laterz" src="reefer/laterz.png">
+
+	<img id="title" src="reefer/mainmenu.png">
+	<a id="nameOfGame"> </a>
+	<img id="help" src="reefer/help.png">
+
+	<div id="howToPlay">
+	</div>
+
+	<div id="resultsScreen">
+		<img id="whatPercentage" />
+		<div class="offcenterYouFound">		</div>
+			<b id="xcheat"  >x</b>
+			<b id="youFoundThisMany" >4</b>
+			<a id="youFoundThisSentence"  >You found 4 out of 5 snails!</a>
+	</div>
+
+	<div id="rightanswer">
+		<div class="offcenter">
+			<H1 id="perfectMatch" class="whiteItal">Good Match! </H1>
+			<A id="rightName" class="greek"> </A>  
+		</div>
+	</div> 
+
+	<div id="wronganswer">  <div class="wrongcenter"> </div>
+							<BR /> &nbsp; <BR />
+								<b id="tryAgain" class="whiteWrong">Look Again</b>
+								<A id="blurb" class="greek"> Look carefully at the shell shape, color 
+												<BR />and patterns. Is there a better match?</A> 
+	</div>
+	<div id="npcanswer">  <div class="wrongcenter"> </div>
+							<BR /> &nbsp; <BR />
+								<img id="npcImage" >
+								<b id="npcTitle" class="whiteWrong">Look Again</b>
+								<A id="npcExpos" class="greek"> Look carefully at the shell shape, color 
+												<BR />and patterns. Is there a better match?</A> 
+	</div>
+
+	<canvas id="rrCanvas"  width="1920" height="1080"></canvas> 
+
+
+	</BODY>
+</HTML>
