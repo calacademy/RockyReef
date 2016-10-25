@@ -213,7 +213,7 @@ body {
   z-index: 65;
   opacity: 0.95; }
 
-#marketo {
+#email-signup {
   position: absolute;
   left: 305;
   top: 380;
@@ -649,7 +649,8 @@ body {
 
 #crit2 {
   width: 200px;
-  height: 200px;  position: absolute;
+  height: 200px;
+  position: absolute;
   left: 875;
   top: -200;
   z-index: 55;
@@ -973,6 +974,3 @@ intro li {
 @font-face {
   font-family: Whitney-Medium;
   src: url(Whitney-Medium.otf) format('opentype'); }
-
-
-

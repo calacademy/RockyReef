@@ -1355,35 +1355,33 @@ var tidepoolGamePlay = function(theGame, playNumber, otherVar) {
 	
 			// go to signup
         	$('#endingClaim').click(function() {
+				console.log('going to singup form!');
+
 				clearTimeout(lastScreen);
 				lastScreen = setTimeout(function() {
 					window.location.href = "?attract=1";
-				}, 30000);  
-				
-				MktoForms2.loadForm("http://app-sjp.marketo.com", "945-SMH-086", 1053, function(form){
-					//Add an onSuccess handler
-					form.onSuccess(function(values, followUpUrl){
-						$('#emailHeader').text("Success!  Your reward is on its way!");
-						$('#emailSubTitle').hide();
-						//get the form's jQuery element and hide it
-						form.getFormElem().hide();
-						//return false to prevent the submission handler from taking the lead to the follow up url.
-						return false;
-					});
-				});
+				}, 30000);
 
 				$('#emailz').fadeIn(800);
-				jsKeyboard.currentElement = $('#Email');
-				jsKeyboard.show();
-					$('#Email').on("focus", "jsKeyboard.focus('#Email');");
-					jsKeyboard.focus("#Email");
 				
-			$('#emailz').click(function(){ 
+				/* 
+				jsKeyboard.currentElement = $('#contact_fields_email');
+				jsKeyboard.show();
+				*/
+
+				// $('#contact_fields_email').focus();
+
+				// $('#Email').on("focus", "jsKeyboard.focus('#contact_fields_email');");
+				// jsKeyboard.focus("#contact_fields_email");
+				
+				$('#emailz').click(function(){ 
 					clearTimeout(lastScreen);
 					clearTimeout(emailTimeout);
-					$('#Email').on("focus", "jsKeyboard.focus('#Email');");
-					jsKeyboard.focus("#Email");
-					$('#Email').focus();
+					
+					// $('#contact_fields_email').on("focus", "jsKeyboard.focus('#contact_fields_email');");
+					// jsKeyboard.focus("#contact_fields_email");
+					// $('#contact_fields_email').focus();
+					
 					emailTimeout = setTimeout(function(){
 						window.location.href = "?attract=1";
 					}, 7000 );

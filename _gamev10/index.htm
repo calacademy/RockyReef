@@ -3,6 +3,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	 <link rel="stylesheet" href="css/rrint.css">
 	 <link rel="stylesheet" href="css/jsKeyboard.css">
+	 <link rel="stylesheet" href="css/signup-form.css">
 
 	 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	 <script type="text/javascript" src="js/tidepoolgamePlay.js"></script>
@@ -12,6 +13,9 @@
 	 <script type="text/javascript" src="js/jsKeyboard.js"></script>
 	 <script type="text/javascript" src="js/easeljs-0.7.1.min.js"></script>
 	 <script type="text/javascript" src="js/sound.js"></script>
+
+	 <script type="text/javascript" src="js/jquery.jsonp.js"></script>
+	 <script type="text/javascript" src="js/enewsform.js"></script>
 
 	 <title>California's Rocky Reef</title>
 
@@ -152,18 +156,35 @@ Searching for Snails! </H3>
 	<H1 class="grayHeader" id="emailHeader">Yes, please send me my <BR /> Explore Tidepool poster!  </H1>
 		<B class="graySubtitle" id="emailSubTitle">Send me my Badge and Guide to: </B>
 		<A class="grayLight" id="emailURL">Or find it online at: calacademy.org/tidepool</a>
-		<div id="marketo">
-			<script src="js/forms2.js"></script>
-			<form id="mktoForm_1053" onclick="jsKeyboard.focus('#Email');clean('#Email')"></form>
+		<div id="email-signup">
+		
+			<form action='.' id='signup-form' class='full_length_box' method='post'>	
+				<ul>
+					<li>
+						<label id="email-label" for="contact_fields_email">Email Address:</label>
+						<div class="input-container">
+							<input type="text" name="contact_fields_email" id="contact_fields_email" value="" />
+						</div>
+					</li>
+					<li>
+						<label for="academy_updates">Yes, I&rsquo;d like to receive emails about upcoming Academy events, news and citizen science updates.</label>
+						<div class="input-container">
+							<input type="checkbox" value="1" name="academy_updates" id="academy_updates" checked />
+						</div>
+					</li>
+				</ul>
+
+				<p>
+					<input type="submit" id="signup-submit" name="commit" value="Submit" />
+				</p>
+			</form>
+		
 		</div>
 	</div>
  <script type="text/javascript">
- 
- 
-
+ 	
      $(function () {
          jsKeyboard.init("virtualKeyboard");
-         $("#Email").val(initText);
      });
 
      function focusIt(t) {
@@ -175,7 +196,7 @@ Searching for Snails! </H3>
 
      function showKeyboard(id) {
          clean($("#" + id));
-         jsKeyboard.currentElement = $("#Email");
+         jsKeyboard.currentElement = $("#contact_fields_email");
          jsKeyboard.show();
      }
      var isCleaned = false;
@@ -185,24 +206,8 @@ Searching for Snails! </H3>
              isCleaned = true;
          }
      }
-     var initText = "click to here to start writing...";
-     function send() {
-         if ( $("#txtContent").val() != initText && $("#txtContent").val().length > 0) {
-             $("#requestForm").css("display", "none");
-             window.setTimeout('$("#feedback").html("Your request has been processing. Please wait...").css("display","block");', 100);
-             window.setTimeout('$("#feedback").html("Your request has been sent. You will see request form in 5 seconds").css("display","block");', 2000);
-             window.setTimeout('showRequestForm()', 7000);
-         }
-         else {
-             $("#feedback").html("Please write your request...").css("display","block");
-         }
-     }
 
-     function showRequestForm() {
-         $("#requestForm").css("display", "block");
-         $("#feedback").css("display", "none");
-         $("#feedback").html("");
-     }
+     var foo = new EnewsForm($('#signup-form'));
  </script> 
 		</div>
 	</div>

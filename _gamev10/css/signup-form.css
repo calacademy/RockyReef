@@ -1,0 +1,78 @@
+#signup-form {
+	font-size: 110%;
+	width: 350px;
+	font-family: Whitney-SemiBold;
+}
+
+#signup-form ul,
+#signup-form li {
+	width: 100%;
+	overflow: hidden;
+
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#signup-form li {
+	margin-bottom: 10px;
+}
+
+#signup-form label,
+#signup-form .input-container {
+	display: block;
+	width: 50%;
+	float: left;
+}
+
+#signup-form p {
+	margin-left: 50%;
+}
+
+#signup-form #email-label {
+	padding-top: 8px;
+}
+
+#signup-form #contact_fields_email {
+	border: 1px solid #cdcdcd;
+	width: 100%;
+}
+
+#signup-form #signup-submit, 
+#signup-form #academy_updates {
+	border: 1px solid #7ab053;
+
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9bc580+0,8ab66b+44,7ab053+100 */
+	background: #9bc580; /* Old browsers */
+	background: -moz-linear-gradient(top,  #9bc580 0%, #8ab66b 44%, #7ab053 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #9bc580 0%,#8ab66b 44%,#7ab053 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #9bc580 0%,#8ab66b 44%,#7ab053 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9bc580', endColorstr='#7ab053',GradientType=0 ); /* IE6-9 */
+}
+
+#signup-form #academy_updates {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 22px;
+	height: 22px;
+	position: relative;
+}
+
+#signup-form #academy_updates:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	font-family: Whitney-Book;
+	position: absolute;
+	top: 3px;
+	left: 4px;
+	color: #fff;
+}
+
+#signup-form #signup-submit {
+	color: #fff;
+	padding: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
+	font-size: 105%;
+	font-family: Whitney-Medium;
+}
