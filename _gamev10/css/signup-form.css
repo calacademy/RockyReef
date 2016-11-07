@@ -1,6 +1,6 @@
 #signup-form {
 	font-size: 110%;
-	width: 350px;
+	width: 450px;
 	font-family: Whitney-SemiBold;
 }
 
@@ -21,12 +21,22 @@
 #signup-form label,
 #signup-form .input-container {
 	display: block;
-	width: 50%;
 	float: left;
 }
 
+#signup-form label {
+	width: 40%;
+	padding-right: 20px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#signup-form .input-container {
+	width: 60%;
+}
+
 #signup-form p {
-	margin-left: 50%;
+	margin-left: 40%;
 }
 
 #signup-form #email-label {
@@ -35,6 +45,8 @@
 
 #signup-form #contact_fields_email {
 	border: 1px solid #cdcdcd;
+	text-transform: lowercase;
+	font-size: 18px;
 	width: 100%;
 }
 
@@ -63,7 +75,7 @@
 	font-size: 14px;
 	font-family: Whitney-Book;
 	position: absolute;
-	top: 3px;
+	top: 1px;
 	left: 4px;
 	color: #fff;
 }

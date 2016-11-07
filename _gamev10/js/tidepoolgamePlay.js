@@ -1384,7 +1384,7 @@ var tidepoolGamePlay = function(theGame, playNumber, otherVar) {
 					
 					emailTimeout = setTimeout(function(){
 						window.location.href = "?attract=1";
-					}, 7000 );
+					}, 20000 );
 				});
 				
 			});
@@ -1402,7 +1402,5 @@ var tidepoolGamePlay = function(theGame, playNumber, otherVar) {
 	this.initialize = function() {
 
 		gamesetup.loadvars(theGame);
-
 	};
-
 }
