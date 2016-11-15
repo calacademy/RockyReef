@@ -90,7 +90,7 @@ var EnewsForm = function (form) {
 			subscribe: 1,
 			email: myEmail,
 			list_ids: listIds.join(','),
-			custom_field: '{rocky_reef_game_version: ' + gameVersion + '}'
+			custom_field: '{"rocky_reef_game_version": ' + gameVersion + '}'
 		};
 
 		$('#contact_fields_email').blur();
