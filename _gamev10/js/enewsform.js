@@ -3,13 +3,13 @@ var EnewsForm = function (form) {
 	var _form = form;
 	var _timeoutSecs = 8;
 	var _submitting = false;
-	var _endpoint = 'https://legacy.calacademy.org/enews/maropost/';
+	var _endpoint = 'https://www.calacademy.org/mailjet-client-proxy';
 
 	var _getValueFromQuery = function (variableName) {
 		var query = document.location.search;
 		var arr = query.substring(1, query.length).split('&');
 		var i = arr.length;
-		
+
 		while (i--) {
 			var pairArr = arr[i].split('=');
 
@@ -62,14 +62,14 @@ var EnewsForm = function (form) {
 
 		// validate blank email
 		var myEmail = $('#contact_fields_email').val().trim();
-		
+
 		if (myEmail == '') {
 			_submitting = false;
 			return false;
 		}
 
-		// rocky reef list
-		var listIds = [8];
+		// rocky reef mailjet list
+		var listIds = [10233915];
 
 		// opt-in for enews updates
 		if ($('#academy_updates').is(':checked')) {
@@ -80,7 +80,7 @@ var EnewsForm = function (form) {
 		// Discover Sea Slugs: 2
 		// Search for Snails: 3
 		var gameVersion = parseInt(_getValueFromQuery('G'));
-		
+
 		if (isNaN(gameVersion)) {
 			gameVersion = 0;
 		}
@@ -90,7 +90,7 @@ var EnewsForm = function (form) {
 			subscribe: 1,
 			email: myEmail,
 			list_ids: listIds.join(','),
-			custom_field: '{"rocky_reef_game_version": ' + gameVersion + '}'
+			collection_point: 'rockyreef'
 		};
 
 		$('#contact_fields_email').blur();
@@ -118,7 +118,7 @@ var EnewsForm = function (form) {
 
 	this.initialize = function () {
 		console.log('EnewsForm.initialize');
-		
+
 		$('#contact_fields_email').on('click', _onClick);
 		_form.on('submit', _onSubmit);
 
