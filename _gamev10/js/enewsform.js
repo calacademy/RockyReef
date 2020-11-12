@@ -69,28 +69,47 @@ var EnewsForm = function (form) {
 		}
 
 		// rocky reef mailjet list
-		var listIds = [10233915];
+		var listId = '';
+		// rocky reef mailjet template for game version deliverables
+		var templateId = 1802960;
+		var templateVars = '';
 
 		// opt-in for enews updates
 		if ($('#academy_updates').is(':checked')) {
-			listIds.push(3);
+			listId = 10233915;
 		}
 
 		// Look for Sea Stars: 1
 		// Discover Sea Slugs: 2
 		// Search for Snails: 3
+
+		// mailjet ID mapping
+		// snail = 1
+		// star = 2
+		// slug = 3
 		var gameVersion = parseInt(_getValueFromQuery('G'));
+		if (gameVersion == 1) {
+			gameVersion = 2;
+		} else if (gameVersion == 2) {
+			gameVersion = 3;
+		} else if (gameVersion == 3) {
+			gameVersion = 1;
+		}
+		templateVars = '{"rockyreef": "version' + gameVersion + '"}';
 
 		if (isNaN(gameVersion)) {
-			gameVersion = 0;
+			//gameVersion = 0;
+			templateId = '';
+			templateVars = '';
 		}
 
 		var myData = {
 			callback: '_jqjsp',
-			subscribe: 1,
 			email: myEmail,
-			list_ids: listIds.join(','),
-			collection_point: 'rockyreef'
+			list_ids: listId,
+			collection_point: 'rockyreef',
+			template_transaction_id: templateId,
+			template_transaction_vars: templateVars
 		};
 
 		$('#contact_fields_email').blur();
